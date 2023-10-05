@@ -32,30 +32,32 @@ def do_pack():
 
 def do_deploy(archive_path):
     """ distributes an archive to my web servers """
-    if exists(archive_path):
+    try:
+        if not exists(archive_path):
+            return False;
+
         put(archive_path, "/tmp/")
         archive_name = archive_path.split('/')[-1]
         uncompressed_path = "/data/web_static/releases/{}/".format(
                 archive_name.split('.')[0])
-        print(uncompressed_path)
 
-        run('sudo mkdir -p {}'.format(uncompressed_path))
-        run('sudo tar -xzf /tmp/{} -C {}'.format(
+        run('mkdir -p {}'.format(uncompressed_path))
+        run('tar -xzf /tmp/{} -C {}'.format(
             archive_name, uncompressed_path))
 
-        run('sudo rm /tmp/{}'.format(archive_name))
+        run('rm /tmp/{}'.format(archive_name))
 
-        run('sudo mv {}web_static/* {}'.format(
+        run('mv {}web_static/* {}'.format(
             uncompressed_path, uncompressed_path))
 
-        run('sudo rm -rf {}web_static'.format(uncompressed_path))
+        run('rm -rf {}web_static'.format(uncompressed_path))
 
-        run('sudo rm -rf /data/web_static/current')
+        run('rm -rf /data/web_static/current')
 
-        run('sudo ln -s {} /data/web_static/current'.format(uncompressed_path))
+        run('ln -s {} /data/web_static/current'.format(uncompressed_path))
 
         print('New version deployed!')
 
         return True
-    else:
+    except Exception:
         return False
