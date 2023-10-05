@@ -58,6 +58,8 @@ def do_deploy(archive_path):
 
         run('sudo ln -s {} /data/web_static/current'.format(uncompressed_path))
 
+        print('New version deployed!')
+
         return True
     except Exception as e:
         print(e)
