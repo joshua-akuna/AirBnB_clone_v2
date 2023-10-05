@@ -38,22 +38,30 @@ def do_deploy(archive_path):
         if not exists(archive_path):
             return False
 
+        # upload the archive to the /tmp/ directory of the remote servers
         put(archive_path, "/tmp/")
+        # Creating path variables for the remote servers
         archive_name = archive_path.split('/')[-1]
         uncompressed_path = "/data/web_static/releases/{}/".format(
                 archive_name.split('.')[0])
 
+        # making directory, where the archive contents will be extracted to
         run('sudo mkdir -p {}'.format(uncompressed_path))
+        # Extracting archive to specified location
         run('sudo tar -xzf /tmp/{} -C {}'.format(
             archive_name, uncompressed_path))
 
+        # deleting archive file
         run('sudo rm /tmp/{}'.format(archive_name))
 
+        # moving all files in the extracted archive directory to the parent
         run('sudo mv {}web_static/* {}'.format(
             uncompressed_path, uncompressed_path))
 
+        # deleting the extracted archive directory
         run('sudo rm -rf {}web_static'.format(uncompressed_path))
 
+        # deleting and recreating the symlink
         run('sudo rm -rf /data/web_static/current')
 
         run('sudo ln -s {} /data/web_static/current'.format(uncompressed_path))
