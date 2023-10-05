@@ -3,9 +3,7 @@
 from datetime import datetime
 from fabric.api import *
 from os.path import exists
-import paramiko, os
-
-# paramiko.common.logging.basicConfig(level=paramiko.common.DEBUG) 
+import paramiko
 
 
 env.hosts = ["100.25.24.43", "100.24.253.164"]
