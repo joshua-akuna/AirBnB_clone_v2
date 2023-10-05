@@ -3,11 +3,15 @@
 from datetime import datetime
 from fabric.api import *
 from os.path import exists
+import paramiko, os
+
+# paramiko.common.logging.basicConfig(level=paramiko.common.DEBUG) 
 
 
 env.hosts = ["100.25.24.43", "100.24.253.164"]
 env.user = "ubuntu"
-env.key_filename = "~/.ssh/school"
+# env.key_filename = "~/.ssh/school"
+# env.use_ssh_config = True
 
 
 def do_pack():
@@ -41,23 +45,22 @@ def do_deploy(archive_path):
         uncompressed_path = "/data/web_static/releases/{}/".format(
                 archive_name.split('.')[0])
 
-        run('mkdir -p {}'.format(uncompressed_path))
-        run('tar -xzf /tmp/{} -C {}'.format(
+        run('sudo mkdir -p {}'.format(uncompressed_path))
+        run('sudo tar -xzf /tmp/{} -C {}'.format(
             archive_name, uncompressed_path))
 
-        run('rm /tmp/{}'.format(archive_name))
+        run('sudo rm /tmp/{}'.format(archive_name))
 
-        run('mv {}web_static/* {}'.format(
+        run('sudo mv {}web_static/* {}'.format(
             uncompressed_path, uncompressed_path))
 
-        run('rm -rf {}web_static'.format(uncompressed_path))
+        run('sudo rm -rf {}web_static'.format(uncompressed_path))
 
-        run('rm -rf /data/web_static/current')
+        run('sudo rm -rf /data/web_static/current')
 
-        run('ln -s {} /data/web_static/current'.format(uncompressed_path))
-
-        print('New version deployed!')
+        run('sudo ln -s {} /data/web_static/current'.format(uncompressed_path))
 
         return True
-    except Exception:
+    except Exception as e:
+        print(e)
         return False
