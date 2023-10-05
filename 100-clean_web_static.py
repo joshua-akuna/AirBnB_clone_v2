@@ -85,7 +85,6 @@ def do_clean(number=0):
     """deletes all unnecessary archives in the local versions directory and
         in the remote /data/web_static/releases directory of the web servers
     """
-    num = int(numbers)
+    num = int(number)
     if num == 0:
         num = 1
-    print (num)
