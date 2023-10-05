@@ -37,7 +37,7 @@ def do_deploy(archive_path):
     if exists(archive_path):
         put(archive_path, "/tmp/")
         archive_name = archive_path.split('/')[-1]
-        uncompressed_path = "/data/web_static/releases/{}".format(
+        uncompressed_path = "/data/web_static/releases/{}/".format(
                 archive_name.split('.')[0])
 
         run('sudo mkdir -p {}'.format(uncompressed_path))
@@ -60,3 +60,7 @@ def do_deploy(archive_path):
         return True
     else:
         return False
+
+if __name__ == "__main__":
+    name = do_pack()
+    do_deploy(name)
