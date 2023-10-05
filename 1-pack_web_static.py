@@ -3,6 +3,7 @@
 from datetime import datetime
 from fabric.api import local, runs_once
 
+
 @runs_once
 def do_pack():
     """ The function generates a .tgz archive from the contents
