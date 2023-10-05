@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#
+# configures the webserver
 
 if ! command -V nginx &> /dev/null
 then
