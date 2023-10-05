@@ -100,7 +100,7 @@ def do_clean(number=0):
         remote_archives = run("ls -1 /data/web_static/releases").split()
         # print(remote_archives)
         for archive in remote_archives[:-num]:
-            run("rm -rf /data/web_static/releases/{}".format(archive))
+            run("sudo rm -rf /data/web_static/releases/{}".format(archive))
 
         return True
     except Exception:
