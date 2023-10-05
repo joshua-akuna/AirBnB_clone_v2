@@ -10,7 +10,6 @@ env.user = "ubuntu"
 env.key_filename = "~/.ssh/school"
 
 
-@runs_once
 def do_pack():
     """ The function generates a .tgz archive from the contents
         of the web_static folder of the AirBnB Clone repo
@@ -31,7 +30,6 @@ def do_pack():
         return None
 
 
-@runs_once
 def do_deploy(archive_path):
     """ distributes an archive to my web servers """
     if exists(archive_path):
@@ -61,7 +59,3 @@ def do_deploy(archive_path):
         return True
     else:
         return False
-
-if __name__ == "__main__":
-    name = do_pack()
-    do_deploy(name)
