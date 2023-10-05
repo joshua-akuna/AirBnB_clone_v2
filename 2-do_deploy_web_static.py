@@ -34,7 +34,7 @@ def do_deploy(archive_path):
     """ distributes an archive to my web servers """
     try:
         if not exists(archive_path):
-            return False;
+            return False
 
         put(archive_path, "/tmp/")
         archive_name = archive_path.split('/')[-1]
