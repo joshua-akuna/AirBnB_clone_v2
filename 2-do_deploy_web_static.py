@@ -39,6 +39,7 @@ def do_deploy(archive_path):
         archive_name = archive_path.split('/')[-1]
         uncompressed_path = "/data/web_static/releases/{}/".format(
                 archive_name.split('.')[0])
+        print(uncompressed_path)
 
         run('sudo mkdir -p {}'.format(uncompressed_path))
         run('sudo tar -xzf /tmp/{} -C {}'.format(
@@ -46,10 +47,10 @@ def do_deploy(archive_path):
 
         run('sudo rm /tmp/{}'.format(archive_name))
 
-        run('sudo mv {}/web_static/* {}'.format(
+        run('sudo mv {}web_static/* {}'.format(
             uncompressed_path, uncompressed_path))
 
-        run('sudo rm -rf {}/web_static'.format(uncompressed_path))
+        run('sudo rm -rf {}web_static'.format(uncompressed_path))
 
         run('sudo rm -rf /data/web_static/current')
 
