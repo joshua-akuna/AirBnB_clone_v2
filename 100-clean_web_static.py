@@ -88,3 +88,8 @@ def do_clean(number=0):
     num = int(number)
     if num == 0:
         num = 1
+
+    print(num)
+    local_archives = os.listdir("versions")
+    print(local_archives)
+    print(sorted(local_archives))
