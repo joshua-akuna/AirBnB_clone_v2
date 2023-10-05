@@ -3,6 +3,7 @@
 from datetime import datetime
 from fabric.api import *
 from os.path import exists
+import os
 import paramiko
 
 
@@ -81,6 +82,7 @@ def deploy():
         return False
     return do_deploy(archive_path)
 
+
 def do_clean(number=0):
     """deletes all unnecessary archives in the local versions directory and
         in the remote /data/web_static/releases directory of the web servers
@@ -89,7 +91,12 @@ def do_clean(number=0):
     if num == 0:
         num = 1
 
-    print(num)
-    local_archives = os.listdir("versions")
-    print(local_archives)
-    print(sorted(local_archives))
+    local_archives = sorted(os.listdir("versions"))
+    # print(local_archives)
+    for archive in local_archives[:-num]:
+        local("echo versions/{}".format(archive))
+
+    remote_archives = run("ls -1 /data/web_static/releases").split()
+    # print(remote_archives)
+    for archive in remote_archives[:-num]:
+        run("echo /data/web_static/releases/{}".format(archive)) 
