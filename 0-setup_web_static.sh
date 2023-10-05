@@ -1,11 +1,8 @@
 #!/usr/bin/env bash
 # configures the webserver
 
-if ! command -V nginx &> /dev/null
-then
-	sudo apt-get update
-	sudo apt-get install nginx
-fi
+sudo apt-get update -y
+sudo apt-get install nginx -y
 
 sudo mkdir -p /data/web_static/releases/test/
 sudo mkdir -p /data/web_static/shared
