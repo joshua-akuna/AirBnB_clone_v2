@@ -34,9 +34,7 @@ def do_pack():
 @runs_once
 def do_deploy(archive_path):
     """ distributes an archive to my web servers """
-    if not exists(archive_path):
-        return False
-    try:
+    if exists(archive_path):
         put(archive_path, "/tmp/")
         archive_name = archive_path.split('/')[-1]
         uncompressed_path = "/data/web_static/releases/{}".format(
@@ -60,5 +58,5 @@ def do_deploy(archive_path):
         print('New version deployed!')
 
         return True
-    except Exception:
+    else:
         return False
