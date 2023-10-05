@@ -1,38 +1,47 @@
-exec {'update':
-  provider => shell,
-  command  => "sudo apt-get update -y"
+# Puppet configuration manifest for servers
+
+package {'nginx':
+  ensure => installed,
 }
 
-exec {'install nginx':
-  provider => shell,
-  command  => 'sudo apt-get install -y nginx'
+file {'/data':
+  ensure => directory,
 }
 
-exec {'create directories':
-  provider => shell,
-  command  => "sudo mkdir -p /data/web_static/releases/test/ /data/web_static/shared/",
+file {'/data/web_static':
+  ensure => directory,
+}
+
+file {'/data/web_static/releases':
+  ensure => directory,
+}
+
+file {'/data/web_static/shared':
+  ensure => directory,
+}
+
+file {'/data/web_static/releases/test':
+  ensure => directory,
 }
 
 file {'/data/web_static/releases/test/index.html':
-  ensure  => present,
+  ensure  => file,
   content => "<html>
 	<head>
 	</head>
 	<body>
 		Holberton School
 	</body>
-</html>
-"
+</html>",
 }
 
-exec {'create link':
-  provider => shell,
-  command  => "sudo ln -sf /data/web_static/releases/test /data/web_static/current"
+file {'/data/web_static/current':
+  ensure => link,
+  target => '/data/web_static/releases/test',
 }
 
-exec {'permissions':
-  provider => shell,
-  command  => "sudo chown -R ubuntu:ubuntu /data/"
+exec {'chown -R ubuntu:ubuntu /data/':
+  path => '/usr/bin/:/usr/local/bin/:/bin/',
 }
 
 exec {'config':
