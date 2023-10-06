@@ -87,21 +87,16 @@ def do_clean(number=0):
     """deletes all unnecessary archives in the local versions directory and
         in the remote /data/web_static/releases directory of the web servers
     """
-    try:
-        num = int(number)
-        if num == 0:
-            num = 1
+    num = int(number)
+    if num == 0:
+        num = 1
 
-        local_archives = sorted(os.listdir("versions"))
-        # print(local_archives)
-        for archive in local_archives[:-num]:
-            local("rm -f versions/{}".format(archive))
+    local_archives = sorted(os.listdir("versions"))
+    # print(local_archives)
+    for archive in local_archives[:-num]:
+        local("rm -f versions/{}".format(archive))
 
-        remote_archives = run("ls -1 /data/web_static/releases").split()
-        # print(remote_archives)
-        for archive in remote_archives[:-num]:
-            run("sudo rm -rf /data/web_static/releases/{}".format(archive))
-
-        return True
-    except Exception:
-        return False
+    remote_archives = run("ls -1 /data/web_static/releases").split()
+    # print(remote_archives)
+    for archive in remote_archives[:-num]:
+        run("sudo rm -rf /data/web_static/releases/{}".format(archive))
