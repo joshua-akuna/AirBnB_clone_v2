@@ -11,9 +11,9 @@ app = Flask(__name__)
 
 @app.route('/', strict_slashes=False)
 def hello():
-    '''returns 'hello HBNB! for the route '/''
+    '''returns '"hello HBNB! for the route /"'
     '''
-    return "hello HBNB!"
+    return "Hello HBNB!"
 
 
 if __name__ == '__main__':
