@@ -3,7 +3,7 @@
     - must be listening on 0.0.0.0 and port 5000
     - route '/' must display "Hello HBNB!"
     - route '/hbnb' must display "HBNB!"
-    - route '/c<text>' displays "C" followed by the value of text
+    - route '/c/<text>' displays "C" followed by the value of text
         (replace underscore '_' in text with '')
     - must use the option 'strict_slashes=False' in each route definition
 '''
@@ -29,7 +29,7 @@ def hbnb():
 
 @app.route('/c/<text>', strict_slashes=False)
 def c(text):
-    '''displays "C" is followed by the value of text variable
+    '''displays "C", followed by the value of text variable
         (replace '_' in text with ' ')
     '''
     new_text = text.replace('_', ' ')
