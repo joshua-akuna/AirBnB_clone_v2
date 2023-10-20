@@ -61,3 +61,9 @@ class FileStorage:
             key = f'{obj.__class__.__name__}.{obj.id}'
             if key in FileStorage.__objects:
                 deleted = FileStorage.__objects.pop(key, None)
+
+    def close(self):
+        ''' calls the reload method for deserializing the JSON file
+            to objects
+        '''
+        reload(self)
