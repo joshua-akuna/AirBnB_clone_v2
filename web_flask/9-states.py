@@ -15,6 +15,7 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 @app.route('/states', strict_slashes=False)
 @app.route('/states/<id>', strict_slashes=False)
 def states(id=None):
@@ -30,14 +31,14 @@ def states(id=None):
                 - H3 tag: "Cities"
                 - UL tag: with the list of City objects linked to the
                     State sorted by name
-                    -LI tag: description of one City: <city.id>: <B><city.name><B/>
+                    -LI tag: describe one City: <city.id>: <B><city.name><B/>
     '''
     state = None
     if id is None:
         state = [value for value in storage.all("State").values()]
     else:
         states = [value for value in storage.all("State").values()
-                if value.id == id]
+                  if value.id == id]
         if len(states) > 0:
             state = states[0]
     return render_template("9-states.html", state=state)
