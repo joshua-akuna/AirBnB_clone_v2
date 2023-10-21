@@ -23,9 +23,7 @@ def states_list():
         - UL tag: with the list of all State objects present in DBStorage
             sorted by name
     '''
-    all_states = [state for state in storage.all("State").values()]
-    sorted_states = sorted(all_states, key=lambda state: state.name)
-    return render_template("7-states_list.html", states=sorted_states)
+    return render_template("7-states_list.html", states=storage.all("State"))
 
 
 @app.teardown_appcontext
