@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''
+'''module
 '''
 
 import sys
@@ -14,6 +14,8 @@ app = Flask(__name__)
 
 @app.route('/cities_by_states', strict_slashes=False)
 def cities_by_states():
+    '''method
+    '''
     return render_template('8-cities_by_states.html',
             states=storage.all("State").values())
 
