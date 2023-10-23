@@ -678,6 +678,8 @@ guillaume@ubuntu:~$ curl 0.0.0.0:5000/cities_by_states ; echo ""
 guillaume@ubuntu:~$ 
 ```
 
+In the browser: [http://localhost:5000/cities_by_states](http://localhost:5000/cities_by_states)
+
 File: [web_flask/8-cities_by_states.py](), [web_flask/templates/8-cities_by_states.html]()
 
 ### 10. States and State
@@ -804,7 +806,7 @@ guillaume@ubuntu:~$
 
 File: [web_flask/9-states.py](), [web_flask/templates/9-states.html]()
 
-## HBNB filters
+## 11. HBNB filters
 Write a script that starts a Flask web application:
 
 * Your web application must be listening on <span style="color:red">*0.0.0.0*</span>, port <span style="color:red">*5000*</span>
@@ -839,6 +841,47 @@ guillaume@ubuntu:~/AirBnB_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_p
 ....
 ```
 
-In the browser:
+In the browser: [http://localhost:5000/hbnb_filters](http://localhost:5000/hbnb_filters)
 
-![img1](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/4f993ec8ca2a2f639a80887667106ac63a0a3701.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231021%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231021T085235Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=886e8f92fd59a394d37d51b51f3eaf5bee0c3cc67c30248e386e1a41100221e2)
+File: [web_flask/10-hbnb_filters.py](), [web_flask/templates/10-hbnb_filters.html](), [web_flask/static/]()
+
+### 12. HBNB is alive!
+Write a script that starts a Flask web application:
+
+* Your web application must be listening on <span style="color:red">*0.0.0.0*</span>, port <span style="color:red">*5000*</span>
+* You must use <span style="color:red">*storage*</span> for fetching data from the storage engine (<span style="color:red">*FileStorage*</span> or <span style="color:red">*DBStorage*</span>) => from <span style="color:red">*from models import storage*</span> and <span style="color:red">*storage.all(...)*</span>
+* To load all cities of a <span style="color:red">*State*</span>:
+    * If your storage engine is <span style="color:red">*DBStorage*</span>, you must use <span style="color:red">*cities*</span> relationship
+    * Otherwise, use the public getter method <span style="color:red">*cities*</span>
+* After each request, you must remove the current SQLAlchemy Session:
+    * Declare a method to handle <span style="color red">*@app.teardown_appcontext*</span>
+    * Call in this method <span style="color red">*storage.close()*</span>
+* Routes:
+    * <span style="color:red">*/hbnb*</span>: displays a HTML page like <span style="color:red">*8-index.html*</span>, done during the [0x01.AirBnB clone - Web static]() project.
+        * Copy files <span style="color:red">*3-footer.css*</span>, <span style="color:red">*3-header.css*</span>, <span style="color:red">*4-common.css*</span>, <span style="color:red">*6-filters.css*</span> and <span style="color:red">*8-places.css*</span> from <span style="color:red">*web_static/styles/*</span> to the folder <span style="color:red">*web_flask/static/styles*</span>
+        * Copy files <span style="color:red">*web_static/images/*</span> to the folder <span style="color:red">*web_flask/static/images*</span>
+        * Update <span style="color:red">*.popover*</span> class in <span style="color:red">*6-filters.css*</span> to allow scrolling in the popover and set max height to 300pixels
+        * Update <span style="color:red">*8-places.css*</span> to always have the price by night on the top right of each place element, and the name correctly aligned and visible (i.e. screenshots below)
+        * Use <span style="color:red">*6-index.html*</span> content as source code for the template <span style="color:red">*100-hbnb.html*</span>:
+            * Replace the content of the <span style="color:red">*H4*</span> tag under each filter title(<span style="color:red">*H3*</span> States and <span style="color:red">*Amenities*</span>) by <span style="color:red">*&nbsp*</span>
+            * Make sure all HTML tags from objects are correctly used (example: <span style="color:red"><BR /></span> must generate a new line)
+        * <span style="color:red">*State*</span>, <span style="color:red">*City*</span> and <span style="color:red">*Amenity*</span> objects must be loaded from <span style="color:red">*DBStorage*</span> and **sorted by name** (A-Z)
+* You must use the option <span style="color red">*strict_slashes=False*</span> in your route definition
+* Import this [100-dump]() to have some data
+
+#### **IMPORTANT**
+* Make sure you have a running and <span style="color:red">*setup_mysql_dev.sql*</span> in your <span style="color:red">*AirBnB_clone_v2*</span> repository([Task]())
+* Make sure all tables are created when you run <span style="color:red">*echo "quit" | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py*</span>
+
+```
+guillaume@ubuntu:~/AirBnB_v2$ curl -o 100-dump.sql "https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/100-hbnb.sql"
+guillaume@ubuntu:~/AirBnB_v2$ cat 100-dump.sql | mysql -uroot -p
+Enter password: 
+guillaume@ubuntu:~/AirBnB_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db python3 -m web_flask.100-hbnb
+* Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+....
+```
+
+In the browser: [http://localhost:5000/hbnb](http://localhost:5000/hbnb)
+
+File: [web_flask/100-hbnb.py](), [web_flask/templates/100-hbnb.html](), [web_flask/static/]()
