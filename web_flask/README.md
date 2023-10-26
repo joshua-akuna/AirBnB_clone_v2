@@ -1,10 +1,13 @@
 # 0x04. AirBnB clone - Wb framework
 
 ### Concepts
+
 * [AirBnB clone]()
 
 ## Resources
+
 ##### Read or watch:
+
 * [What is a Web Framework?](https://intelegain-technologies.medium.com/what-are-web-frameworks-and-why-you-need-them-c4e8806bd0fb)
 * [A Minimal Application](https://flask.palletsprojects.com/en/2.3.x/quickstart/#a-minimal-application)
 * [Routing](https://flask.palletsprojects.com/en/2.3.x/quickstart/#routing) (except "HTTP Methods")
@@ -21,7 +24,7 @@
 
 
 ## Learning Objectives
-At the end of this projects, you are expected to be able to [explain to anyone](), **without the help of Google:**
+At the end of this projects, you are expected to be able to [explain to anyone](https://fs.blog/feynman-learning-technique/), **without the help of Google:**
 
 ### General
 * What is a Web Framework
@@ -47,6 +50,7 @@ $ pip3 install Flask
 
 
 ## Tasks
+
 ### 0. Hello Flask!
 
 Write a script that starts a Flask web application:
@@ -69,10 +73,11 @@ Hello HBNB!$
 guillaume@ubuntu:~$ 
 ```
 
-Directory: [web_flask]()
-File: [0-hello_route.py](), [__init__.py]()
+Directory: [web_flask](https://github.com/joshua-akuna/AirBnB_clone_v2)
+File: [0-hello_route.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/0-hello_route.py), [__init__.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/__init__.py)
 
 ### 1. HBNB
+
 * Your web application must be listening on *0.0.0.0*, port *5000*
 * Routes:
     * */*: display "Hello HBNB!"
@@ -92,10 +97,11 @@ HBNB$
 guillaume@ubuntu:~$
 ```
 
-Directory: [web_flask]()
-File: [1-hbnb_route.py]()
+Directory: [web_flask](https://github.com/joshua-akuna/AirBnB_clone_v2)
+File: [1-hbnb_route.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/1-hbnb_route.py)
 
 ### 2. C is fun!
+
 Write a script that starts a Flask web application:
 * Your web application must be listening on 0.0.0.0, port 5000
 * Routes
@@ -125,10 +131,11 @@ guillaume@ubuntu:~$ curl 0.0.0.0:5000/c
 guillaume@ubuntu:~$ 
 ```
 
-Directory: [web_flask]()
-File: [2-c_route.py]()
+Directory: [web_flask](https://github.com/joshua-akuna/AirBnB_clone_v2)
+File: [2-c_route.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/2-c_route.py)
 
 ### 3. Python is cool!
+
 Write a script that starts a Flask web application:
 * Your web application must be listening on 0.0.0.0, port 5000
 * Routes
@@ -157,10 +164,11 @@ Python is cool$
 guillaume@ubuntu:~$ 
 ```
 
-Directory: [web_flask]()
-File: [3-python_route.py]()
+Directory: [web_flask](https://github.com/joshua-akuna/AirBnB_clone_v2)
+File: [3-python_route.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/3-python_route.py)
 
 ### 4. Is it a number?
+
 Write a script that starts a Flask web application:
 * Your web application must be listening on 0.0.0.0, port 5000
 * Routes
@@ -196,10 +204,11 @@ guillaume@ubuntu:~$ curl 0.0.0.0:5000/number/python
 guillaume@ubuntu:~$ 
 ```
 
-Directory: [web_flask]()
-File: [4-number_route.py]()
+Directory: [web_flask](https://github.com/joshua-akuna/AirBnB_clone_v2)
+File: [4-number_route.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/4-number_route.py)
 
 ### 5. Number template
+
 Write a script that starts a Flask web application:
 * Your web application must be listening on 0.0.0.0, port 5000
 * Routes
@@ -245,10 +254,11 @@ guillaume@ubuntu:~$ curl 0.0.0.0:5000/number_template/python
 guillaume@ubuntu:~$
 ```
 
-Directory: [web_flask]()
-File: [5-number_template.py](), [templates/5-number.html]()
+Directory: [web_flask](https://github.com/joshua-akuna/AirBnB_clone_v2)
+File: [5-number_template.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/5-number_template.py), [templates/5-number.html](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/templates/5-number.html)
 
 ### 6. Odd or even?
+
 Write a script that starts a Flask web application:
 * Your web application must be listening on 0.0.0.0, port 5000
 * Routes
@@ -301,10 +311,11 @@ guillaume@ubuntu:~$ curl 0.0.0.0:5000/number_odd_or_even/python
 guillaume@ubuntu:~$ 
 ```
 
-Directory: [web_flask]()
-File: [6-number_odd_or_even.py](), [templates/6-number_odd_or_even.html]()
+Directory: [web_flask](https://github.com/joshua-akuna/AirBnB_clone_v2)
+File: [6-number_odd_or_even.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/6-number_odd_or_even.py), [templates/6-number_odd_or_even.html](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/templates/6-number_odd_or_even.html)
 
 ### 7. Improve engines
+
 Before using Flask to display our HBNB data, you will need to update some part of the engine:
 
 Update <span style="color=red">*FileStorage*</span>: (<span style="color:red">*models/engine/file_storage.py*</span>)
@@ -408,9 +419,10 @@ Find the city [City] (a693bdb9-e0ca-4521-adfd-e1a93c093b4b) {'name': 'Page', 'id
 guillaume@ubuntu:~/AirBnB_v2$ 
 ```
 
-File: [models/engine/file_storage.py](), [models/engine/db_storage.py](), [models/state]()
+File: [models/engine/file_storage.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/models/engine/file_storage.py), [models/engine/db_storage.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/models/engine/db_storage.py), [models/state](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/models/state.py)
 
 ### 8. List of states
+
 Write a scriptt that starts a Flask web application:
 
 * Your web application must be listening on <span style="color red">*0.0.0.0*</span>, <span style="color red">*5000*</span>
@@ -426,6 +438,7 @@ Write a scriptt that starts a Flask web application:
 * You must use the option <span style="color red">*strict_slashes=False*</span> in your route definition
 
 #### **IMPORTANT**
+
 * Make sure you have a running and <span style="color:red">*setup_mysql_dev.sql*</span> in your <span style="color:red">*AirBnB_clone_v2*</span> repository([Task]())
 * Make sure all tables are created when you run <span style="color:red">*echo "quit" | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py*</span>
 
@@ -483,9 +496,10 @@ guillaume@ubuntu:~$ curl 0.0.0.0:5000/states_list ; echo ""
 guillaume@ubuntu:~$ 
 ```
 
-File: [web_flask/7-states_list.py](), [web_flask/templates/7-states_list.html]()
+File: [web_flask/7-states_list.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/7-states_list.py), [web_flask/templates/7-states_list.html](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/templates/7-states_list.html)
 
 ### 9. Cities by states
+
 Write a scriptt that starts a Flask web application:
 
 * Your web application must be listening on <span style="color red">*0.0.0.0*</span>, <span style="color red">*5000*</span>
@@ -505,6 +519,7 @@ Write a scriptt that starts a Flask web application:
 * You must use the option <span style="color red">*strict_slashes=False*</span> in your route definition
 
 #### **IMPORTANT**
+
 * Make sure you have a running and <span style="color:red">*setup_mysql_dev.sql*</span> in your <span style="color:red">*AirBnB_clone_v2*</span> repository([Task]())
 * Make sure all tables are created when you run <span style="color:red">*echo "quit" | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py*</span>
 
@@ -542,10 +557,10 @@ guillaume@ubuntu:~$ curl 0.0.0.0:5000/cities_by_states ; echo ""
                         <LI>551a55f4-7d82-47d9-b54c-a76916479545: <B>Fairfield</B></LI>
 
                 </UL>
-OB            </LI>
-OBOBOB
+            </LI>
+
             <LI>421a55f4-7d82-47d9-b54c-a76916479546: <B>Arizona</B>
-OBOB                <UL>
+                        <UL>
 
                         <LI>521a55f4-7d82-47d9-b54c-a76916479546: <B>Douglas</B></LI>
 
@@ -680,9 +695,10 @@ guillaume@ubuntu:~$
 
 In the browser: [http://localhost:5000/cities_by_states](http://localhost:5000/cities_by_states)
 
-File: [web_flask/8-cities_by_states.py](), [web_flask/templates/8-cities_by_states.html]()
+File: [web_flask/8-cities_by_states.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/8-cities_by_states.py), [web_flask/templates/8-cities_by_states.html](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/templates/8-cities_by_states.html)
 
 ### 10. States and State
+
 Write a script that starts a Flask web application:
 
 * Your web application must be listening on <span style="color:red">*0.0.0.0*</span>, port <span style="color:red">*5000*</span>
@@ -709,6 +725,7 @@ Write a script that starts a Flask web application:
 * Import this [7-dump](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/7-states_list.sql) to have some data
 
 #### **IMPORTANT**
+
 * Make sure you have a running and <span style="color:red">*setup_mysql_dev.sql*</span> in your <span style="color:red">*AirBnB_clone_v2*</span> repository([Task]())
 * Make sure all tables are created when you run <span style="color:red">*echo "quit" | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py*</span>
 
@@ -804,7 +821,7 @@ guillaume@ubuntu:~$ curl 0.0.0.0:5000/states/holberton ; echo ""
 guillaume@ubuntu:~$ 
 ```
 
-File: [web_flask/9-states.py](), [web_flask/templates/9-states.html]()
+File: [web_flask/9-states.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/9-states.py), [web_flask/templates/9-states.html](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/templates/9-states.html)
 
 ## 11. HBNB filters
 Write a script that starts a Flask web application:
@@ -829,6 +846,7 @@ Write a script that starts a Flask web application:
 * Import this [10-dump](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/10-hbnb_filters.sql) to have some data
 
 #### **IMPORTANT**
+
 * Make sure you have a running and <span style="color:red">*setup_mysql_dev.sql*</span> in your <span style="color:red">*AirBnB_clone_v2*</span> repository([Task]())
 * Make sure all tables are created when you run <span style="color:red">*echo "quit" | HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=hbnb_dev_db HBNB_TYPE_STORAGE=db ./console.py*</span>
 
@@ -843,9 +861,10 @@ guillaume@ubuntu:~/AirBnB_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_p
 
 In the browser: [http://localhost:5000/hbnb_filters](http://localhost:5000/hbnb_filters)
 
-File: [web_flask/10-hbnb_filters.py](), [web_flask/templates/10-hbnb_filters.html](), [web_flask/static/]()
+File: [web_flask/10-hbnb_filters.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/10-hbnb_filters.py), [web_flask/templates/10-hbnb_filters.html](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/templates/10-hbnb_filters.html), [web_flask/static/](https://github.com/joshua-akuna/AirBnB_clone_v2/tree/main/web_flask/static)
 
 ### 12. HBNB is alive!
+
 Write a script that starts a Flask web application:
 
 * Your web application must be listening on <span style="color:red">*0.0.0.0*</span>, port <span style="color:red">*5000*</span>
@@ -867,7 +886,7 @@ Write a script that starts a Flask web application:
             * Make sure all HTML tags from objects are correctly used (example: <span style="color:red"><BR /></span> must generate a new line)
         * <span style="color:red">*State*</span>, <span style="color:red">*City*</span> and <span style="color:red">*Amenity*</span> objects must be loaded from <span style="color:red">*DBStorage*</span> and **sorted by name** (A-Z)
 * You must use the option <span style="color red">*strict_slashes=False*</span> in your route definition
-* Import this [100-dump]() to have some data
+* Import this [100-dump](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/290/100-hbnb.sql) to have some data
 
 #### **IMPORTANT**
 * Make sure you have a running and <span style="color:red">*setup_mysql_dev.sql*</span> in your <span style="color:red">*AirBnB_clone_v2*</span> repository([Task]())
@@ -884,4 +903,4 @@ guillaume@ubuntu:~/AirBnB_v2$ HBNB_MYSQL_USER=hbnb_dev HBNB_MYSQL_PWD=hbnb_dev_p
 
 In the browser: [http://localhost:5000/hbnb](http://localhost:5000/hbnb)
 
-File: [web_flask/100-hbnb.py](), [web_flask/templates/100-hbnb.html](), [web_flask/static/]()
+File: [web_flask/100-hbnb.py](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/100-hbnb.py), [web_flask/templates/100-hbnb.html](https://github.com/joshua-akuna/AirBnB_clone_v2/blob/main/web_flask/templates/100-hbnb.html), [web_flask/static/](https://github.com/joshua-akuna/AirBnB_clone_v2/tree/main/web_flask/static)
